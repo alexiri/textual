@@ -1978,8 +1978,8 @@ class App(Generic[ReturnType], DOMNode):
                                 with redirect_stdout(redirector):  # type: ignore
                                     await run_process_messages()
                         else:
-                            with redirect_stderr(None):
-                                with redirect_stdout(None):
+                            with redirect_stderr(open(os.devnull, 'w')):
+                                with redirect_stdout(open(os.devnull, 'w')):
                                     await run_process_messages()
 
                 finally:
